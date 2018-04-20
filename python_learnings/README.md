@@ -2,4 +2,4 @@
 ## A Guide to Learn how to Fly 
 by Marina Wahl <br></br> 
 *There’s nothing to fear but the fear itself. That’s called recursion, and that would lead you to infinite fear.*<br></br>
-This repository will contain all the code snippets of basic modules and functions of python.
+This repository will contain all the code snippets of basic modules and functions of python. All the code snippets have been written with respect to python 2.7x version.
