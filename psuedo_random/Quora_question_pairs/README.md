@@ -6,8 +6,8 @@ Many people on Quora ask questions with same intent in different wordings. For b
 
 ## Dataset
 You can download dataset from this
-[link](https://s3-us-west-2.amazonaws.com/nanonets/datasets/quora-task/train.csv)
-
+[link](https://s3-us-west-2.amazonaws.com/nanonets/datasets/quora-task/train.csv) <br>
+For GoogleWord2Vec : [link](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit) <br>
 
 
 ## Code snipppets:
@@ -17,6 +17,13 @@ You can download dataset from this
 
 **embedding.py**: It contains code snippet for converting GoogleWord2Vec bin file to numpy file for faster loading using mmap.
 
+
+## Implementation
+For implementation, following steps should be followed:
+1. Download Quora question pairs dataset and Google word2vec neural word embeddings and place them inside data folder.
+2. Run the embedding.py file and it will downsize word2vec model for faster loading during inference.
+3. Run the train.py file and it will start training the network. The best network will be saved based on validation accuracy.
+4. Run the test.py file and give two questions as input. The model will give prediction whether they are duplicate or not (Yes/No).
 
 ### Model
 We used Google Word2vec neural network embedding as input followed by LSTMs and multi-layer perceptrons stacked on top of it.
@@ -52,6 +59,7 @@ _Batch normalization_: It improved generalization accuracy on validation dataset
 
 ## Future works
 What else can be done? 
-- Glove vectors can be tried as neural word embeddings instead of Word2Vec embeddings
-- Other architectures like 1-D convolution, GRU, BiLSTMs etc. can be tried and they can be further ensembled to give higher accuracy
-- Since the datset was biased, we can give weightage to duplicate class in loss function and achieve better performance
+- Glove vectors can be tried as neural word embeddings instead of Word2Vec embeddings.
+- Other architectures like 1-D convolution, GRU, BiLSTMs etc. can be tried and they can be further ensembled to give higher accuracy.
+- Since the datset was biased, we can give weightage to duplicate class in loss function and achieve better performance.
+- ROC-AUC curve can be drawn to determine a good value of threshold.
