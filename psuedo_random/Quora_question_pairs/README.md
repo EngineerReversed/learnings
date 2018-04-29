@@ -42,9 +42,9 @@ There were 37% positives or duplicates and 63% negatives or non-duplicates. Some
 ### Word embeddings:
 There are three types of neural word embeddings: Word2Vec, Doc2Vec and Glove embeddings. We went ahead with Word2Vec
 
-_Word2Vec_: The purpose and usefulness of Word2vec is to group the vectors of similar words together in vectorspace. That is, it detects similarities mathematically. Word2vec creates vectors that are distributed numerical representations of word features, features such as the context of individual words. It does so without human intervention. It uses cosine similarity for similarity measure. It's amusing feature of equations to produce results is what intersted me and I decided to go ahead with it since it preserves semantic similarities.
+_Word2Vec_: The purpose and usefulness of Word2vec is to group the vectors of similar words together in vectorspace. That is, it detects similarities mathematically. Word2vec creates vectors that are distributed numerical representations of word features, features such as the context of individual words. It does so without human intervention. It uses cosine similarity for similarity measure. It's amusing feature of equations to produce results is what intersted us and we decided to go ahead with it since it preserves semantic similarities.
 
-Reason for changing word2vec vectors of Google to numpy array: I saw in the documentation that 'init_sims' can save a lot of memory. So if I first use this function ,and then save this model, and then later I load this model using mmap='r', will it save a lot of time?
+Reason for changing word2vec vectors of Google to numpy array: we saw in the documentation that 'init_sims' can save a lot of memory. So, it will save a lot of time?
 A faster way is to use gensim's save/load functionality. It uses a binary format and supports memory-mapping the large arrays into virtual memory directly, so loading should be pretty much instant.
 
 ### Techniques tried:
