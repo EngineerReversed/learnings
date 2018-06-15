@@ -26,7 +26,7 @@ all:
     cc -o test test.c
 ```
 
-> make all
+> $ make all
 
  command will execute only the all target. It first creates an executable test which can be used as executable to run test.c
 <br></br>
