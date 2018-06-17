@@ -75,7 +75,7 @@ help : Makefile
 
 <br></br>
 
-**pathsubst**
+**patsubst**
 > DAT_FILES=$(patsubst books/*.txt, %.dat, $(TXT_FILES))
 
 If you have a hierarchy of folders for several files and they follow fixed pattern, it can be used for generating list of files and save it to a variable name.
