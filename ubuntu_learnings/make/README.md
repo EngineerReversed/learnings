@@ -46,9 +46,9 @@ Suppose, we made a change to a file and just want to see which files will be exe
 <br></br>
 
 ### Variables
-* **#@** is a Make automatic variable which means target of the current rule. Target filenames can be used for variable names.
-* **#^** is a Make automatic variable which means dependency of the current rule. Dependency filenames can be used for variable names. 
-* **#<** is a Make automatic variable which means first dependency of the current rule. Dependency filenames can be used for variable names if we just want to mention the first dependency only in the action.
+* **$@** is a Make automatic variable which means target of the current rule. Target filenames can be used for variable names.
+* **$^** is a Make automatic variable which means dependency of the current rule. Dependency filenames can be used for variable names. 
+* **$<** is a Make automatic variable which means first dependency of the current rule. Dependency filenames can be used for variable names if we just want to mention the first dependency only in the action.
 <br></br>
 ### Pattern rules
 Wildcards * can be used for prototyping commands. **$*** can be used for addressing multiple files as well.
