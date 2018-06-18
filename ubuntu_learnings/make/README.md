@@ -50,6 +50,16 @@ Suppose, we made a change to a file and just want to see which files will be exe
 * **$^** is a Make automatic variable which means dependency of the current rule. Dependency filenames can be used for variable names. 
 * **$<** is a Make automatic variable which means first dependency of the current rule. Dependency filenames can be used for variable names if we just want to mention the first dependency only in the action.
 <br></br>
+
+Symbol | Explanation
+| --- | --- |
+$? | list of dependencies changed more recently than current target.
+$@ | name of current target.
+$< | name of current dependency
+$* | name of current dependency without extension.
+
+
+<br></br>
 ### Pattern rules
 Wildcards * can be used for prototyping commands. **$*** can be used for addressing multiple files as well.
 <br></br>
@@ -80,9 +90,54 @@ help : Makefile
 
 If you have a hierarchy of folders for several files and they follow fixed pattern, it can be used for generating list of files and save it to a variable name.
 <br></br>
+**Macroname** 
+This uses Suffix Replacement within a macro:
+> $(name:string1=string2)
+
+For each word in 'name' replace 'string1' with 'string2'.
+Below we are replacing the suffix .c of all words in the macro SRCS with the .o suffix
+> OBJS = $(SRCS:.c=.o)
+
+<br></br>
+
+**Suffix rule**
+
+It tells the make command: given a target file with .o extension there should be a dependency file with .c extension (same name -- only extension changes) that can be build.  Thus, a file main.c will produce a file main.o. Notice ```.c.o``` is not a target but two extensions (.c and .o).
+
+```
+.c.o:
+    cc -c $<
+```
 
 ***Note:***
 
 * .PHONY is used to mark some targets. If we define a rule in which target name doesn't have a dependency and the target name happens to be a directory, then after invoking make target it won't generate the data as it sees that the directory is already existing and it doesn't have any dependency as well. Therefore, we assign a tag PHONY to the target. 
 * Sometimes suffix .mk  is used for Makefile as well
 * Make variables are sometimes also called as macro
+* '-mv' the hyphen or minus sign before mv helps to ignore errors and causes the makefile not to breakdown if an error occurs.
+```
+getobj:
+	-mv obj/*.o .  2>/dev/null
+```
+* There is a special phony target called ___all___ where you can group several main targets and phony targets. all phony target  is often used to lead make command while reading makefile. 
+* \ can be put at the end of line to signify that the line has ended otherwise if spaces are present makefile will throw error
+```
+@if [ "$(COND1)" != "$(COND2)" ];\
+then\
+cp -p ./app $(INSTPATH) 2>/dev/null;\
+chmod 700 $(INSTPATH);\
+echo "Installed in" $(INSTPATH);\
+fi
+```
+@ can be put in order to make sure that the code is not printed
+
+* .SUFFIXES is used for defining file extensions which are not known to compiler by default
+```
+.SUFFIXES: .txt .log
+
+.txt.log:	
+	@echo "Converting " $< " to " $*.log
+	mv $< $*.log
+```
+* The brackets ensure that all commands are executed in same file. If you want to traverse in directories and execute commands sequentially, you would require to execute all commands in same line.
+> (pwd;cd dir_test;pwd)
