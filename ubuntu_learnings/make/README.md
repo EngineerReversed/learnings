@@ -31,6 +31,33 @@ all:
  command will execute only the all target. It first creates an executable test which can be used as executable to run test.c
 <br></br>
 
+### Sample Makefile
+```
+# Generate summary table.
+results.txt : isles.dat abyss.dat last.dat
+	python testzipf.py $^ > $@
+
+# Count words.
+
+.PHONY : dats
+dats : isles.dat abyss.dat last.dat
+
+isles.dat : books/isles.txt
+	python countwords.py $< $@
+
+abyss.dat : books/abyss.txt
+	python countwords.py $< $@
+
+last.dat : books/last.txt
+	python countwords.py $< $@
+
+.PHONY : clean
+clean :
+	rm -f *.dat
+	rm -f results.txt
+```
+<br></br>
+
 ### Commands
 We can rename our Makefile to be something else and it can be executed as follows:
 
@@ -90,7 +117,9 @@ help : Makefile
 
 If you have a hierarchy of folders for several files and they follow fixed pattern, it can be used for generating list of files and save it to a variable name.
 <br></br>
+
 **Macroname** 
+
 This uses Suffix Replacement within a macro:
 > $(name:string1=string2)
 
