@@ -37,5 +37,7 @@ XML can create customized nested tags to maintain tree structure.
   </emp_info>
 </employee>
 ```
-<img src="./images/xml_tree_structure.png" 
-alt="IMAGE ALT TEXT HERE" border="1" />
+
+<div style="text-align:center"><img src="./images/xml_tree_structure.png" 
+alt="XML tree structure" border="1" /></div>
+
