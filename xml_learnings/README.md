@@ -38,6 +38,6 @@ XML can create customized nested tags to maintain tree structure.
 </employee>
 ```
 
-<div style="text-align:center"><img src="./images/xml_tree_structure.png" 
+<div align="center"><img align="center" src="./images/xml_tree_structure.png" 
 alt="XML tree structure" border="1" /></div>
 
