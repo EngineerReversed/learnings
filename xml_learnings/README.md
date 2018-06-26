@@ -42,7 +42,7 @@ XML can create customized nested tags to maintain tree structure.
 alt="XML tree structure" border="1" /></div>
 
 ___
-## XML rules
+### XML rules
 1. XML documents have only one root element
 ```
 <root>
@@ -107,7 +107,7 @@ ___
 <emp_info>employee number &lt; 15 </emp_info>   <!-- Valid -->
 ```
 
-## XML elements vs attributes
+### XML elements vs attributes
 Difference between element and attribute : attributes are part of the markup and elements are part of the document to store data.
 ```
 <emp_info id="1">   <!-- Attributes represent-->
@@ -119,17 +119,17 @@ Difference between element and attribute : attributes are part of the markup and
 <emp_info>
 ```
 
-## XML elements
+### XML elements
 Element names must be alphabetic or numeric character contains. Element name can't have white spaces contains and name can't start with capital letter, numeric or mixed letter. 
 
-## XML attributes
+### XML attributes
 XML attributes specified by name="value" pair inside the starting element. XML attribute values must be quoted. XML standard specifies element may have define multiple attributes along with unique attribute name.
 
 
 # XSL
 XSL (Extensible stylesheet language) is a family of recommendations for defining XML  document transformation and presentation. XSLT stands for extensible style language transfer. 
 
-## XSLT Transform
+### XSLT Transform
 First the document type is defined along with document encoding
 ```
 <?xml version="1.0" encoding="ISO-8859-1"?>
